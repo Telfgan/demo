@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование желатинки</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        *{
+            cursor: url(/cursor.png) 4 1, auto;
+        }
+    </style>
+</head>
+<body>
+
+<header th:insert="/fragments/header :: headerMain"> </header>
+
+<h1> Редактировать желатинку </h1>
+
+<form method="post" th:object="${object}">
+    <label> Название желатинки </label>
+    <input th:field="*{name}" class="form-control" placeholder="Название" type="text" name="name">
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red"></div>
+    <label> Форма </label>
+    <input th:field="*{shape}" class="form-control" placeholder="Форма" type="text" name="shape">
+    <div th:if="${#fields.hasErrors('shape')}" th:errors="*{shape}" style="color:red"></div>
+    <label> Сладость </label>
+    <input th:field="*{sweetness}" class="form-control" placeholder="Вкусность от 1 до 10" type="number" name="sweetness">
+    <div th:if="${#fields.hasErrors('sweetness')}" th:errors="*{sweetness}" style="color:red"></div>
+    <label> Кислость </label>
+    <input th:field="*{sourness}" class="form-control" placeholder="Кислость от 1 до 10" type="number" name="sourness">
+    <div th:if="${#fields.hasErrors('sourness')}" th:errors="*{sourness}" style="color:red"></div>
+    <label> Содержание сока </label>
+    <input th:field="*{juice}" class="form-control" placeholder="Любое в процентах" type="text" name="juice">
+    <div th:if="${#fields.hasErrors('juice')}" th:errors="*{juice}" style="color:red"></div>
+    <input type="submit" value="Редактировать желатинку">
+</form>
+</body>
+</html>

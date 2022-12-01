@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<h2> Калькулятор </h2> <br>
+<form method="post" id="formCalc" action="/about">
+    <div class="col-md-7 col-lg-8">
+        <div class="row g-3">
+            <div class="col-sm-6">
+                <label class="form-label">Первое число</label>
+                <input placeholder="" class="form-control" type="number" name="firstNum"
+                       th:value="${firstNum}">
+            </div>
+            <div class="col-sm-6">
+                <label class="form-label">Второе число</label>
+                <input class="form-control" type="number" name="secondNum"
+                       th:value="${secondNum}">
+            </div>
+            <div class="col-12">
+                <label th:for="operator" class="form-label">Знак</label>
+                <input class="form-control"  type="text" name="operator"
+                       th:value="${operator}">
+            </div>
+
+            <div class="col-12">
+                <label th:for="Result" class="form-label">Результат</label>
+                <input readonly="readonly" class="form-control" type="text" name="result"
+                       th:value="${result}">
+            </div>
+
+            <label>Get</label>
+            <p>
+                <input type="radio" value="Get" name="meth"/>
+            </p>
+            <label>Post</label>
+            <p>
+                <input type="radio" value="Post" name="meth"/>
+            </p>
+
+            <input class="w-100 btn btn-primary btn-lg" type="submit" value="Решить" onclick="changeMethod()"/>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        var input = document.getElementById('typeQuery');
+
+        function changeMethod() {
+            document.getElementById("formCalc").method = document.querySelector('input[name="meth"]:checked').value;
+        }
+    </script>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        *{
+            cursor: url(/cursor.png) 4 1, auto;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text = "'Гитара: ' + ${one_jelly.name}"> </h1>
+
+<div class="container">
+    <h2 th:text="'Количество струн: ' + ${one_guitar.getStrings()}"> </h2>
+</div>
+
+<div class="container">
+    <h3 th:text="'Мензура: ' + ${one_guitar.getMenzure()}"> </h3>
+</div>
+
+<div class="container">
+    <h4 th:text="'Строй: ' + ${one_guitar.getDrop()}"> </h4>
+</div>
+
+<div class="container">
+    <h5 th:text="'Цена: ' + ${one_guitar.getCost()}"> </h5>
+</div>
+
+<a th:href="'/guitar/guitar-info/' + ${one_guitar.UID} + '/upd'"
+   class="btn btn-warning"> Редактировать</a>
+<a th:href="'/guitar/guitar-info/' + ${one_guitar.UID} + '/del'"
+   class="btn btn-danger"> Удалить </a>
+</body>
+</html>

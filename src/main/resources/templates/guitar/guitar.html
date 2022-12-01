@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Гитары</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        *{
+            cursor: url(/cursor.png) 4 1, auto;
+        }
+    </style>
+</head>
+<body>
+
+<header th:insert="/fragments/header :: headerMain"> </header>
+
+<h1> Список гитар </h1>
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col"> Название </th>
+        <th scope="col"> Количество струн </th>
+        <th scope="col"> Мензура </th>
+        <th scope="col"> Строй </th>
+        <th scope="col"> Цена </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="el : ${jellylist}" >
+        <td th:text="${el.name}"></td>
+        <td th:text="${el.strings}"></td>
+        <td th:text="${el.menzure}"></td>
+        <td th:text="${el.drop}"></td>
+        <td th:text="${el.cost}"></td>
+
+
+        <td>
+            <a th:href="'/guitar/guitar-info/' + ${el.UID}"> Редактировать </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</div>
+
+<a href="/jelly/add" class="btn btn-success"> Добавить гитару </a>
+</body>
+</html>

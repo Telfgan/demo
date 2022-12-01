@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Редактирование гитары</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <style>
+    *{
+      cursor: url(/cursor.png) 4 1, auto;
+    }
+  </style>
+</head>
+<body>
+
+<header th:insert="/fragments/header :: headerMain"> </header>
+
+<h1> Редактировать гитару </h1>
+
+<form method="post" th:object="${object}">
+  <label> Название гитары </label>
+  <input th:field="*{name}" class="form-control" placeholder="Название" type="text" name="name">
+  <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red"></div>
+  <label> Количество струн </label>
+  <input th:field="*{strings}" class="form-control" placeholder="Количество струн" type="text" name="shape">
+  <div th:if="${#fields.hasErrors('strings')}" th:errors="*{strings}" style="color:red"></div>
+  <label> Мензура </label>
+  <input th:field="*{menzure}" class="form-control" placeholder="Какая мензура" type="number" name="menzure">
+  <div th:if="${#fields.hasErrors('menzure')}" th:errors="*{menzure}" style="color:red"></div>
+  <label> Строй </label>
+  <input th:field="*{drop}" class="form-control" placeholder="Как настроена?" type="number" name="drop">
+  <div th:if="${#fields.hasErrors('drop')}" th:errors="*{drop}" style="color:red"></div>
+  <label> Цена </label>
+  <input th:field="*{cost}" class="form-control" placeholder="Дорогая?" type="text" name="cost">
+  <div th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}" style="color:red"></div>
+  <input type="submit" value="Редактировать гитару">
+</form>
+</body>
+</html>
